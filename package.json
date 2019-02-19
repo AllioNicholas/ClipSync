@@ -7,7 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "flow": "flow"
+    "flow": "flow",
+    "eslint": "eslint src"
   },
   "dependencies": {
     "expo": "^32.0.0",
@@ -19,6 +20,11 @@
     "babel-cli": "^6.26.0",
     "babel-preset-expo": "^5.0.0",
     "babel-preset-flow": "^6.23.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "flow-bin": "^0.93.0"
   },
   "private": true
