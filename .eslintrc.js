@@ -3,7 +3,13 @@ module.exports = {
     jest: true,
     es6: true,
   },
-  extends: ['airbnb', 'plugin:flowtype/recommended'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'prettier/flowtype',
+    'prettier/react',
+    'plugin:flowtype/recommended',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
