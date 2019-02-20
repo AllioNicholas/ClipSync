@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "flow": "flow",
-    "eslint": "eslint --ext .js --ext .jsx ."
+    "eslint": "eslint --ext .js --ext .jsx .",
+    "test": "jest"
   },
   "dependencies": {
     "expo": "^32.0.0",
@@ -26,7 +27,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-native": "^3.6.0",
-    "flow-bin": "^0.93.0"
+    "flow-bin": "^0.93.0",
+    "jest": "^24.1.0"
   },
   "private": true
 }
