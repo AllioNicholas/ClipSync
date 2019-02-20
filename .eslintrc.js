@@ -33,7 +33,8 @@ module.exports = {
   settings: {
     "import/resolver": {
       node: {
-        extensions: [".js", ".android.js", ".ios.js"]
+        paths: ["src"],
+        extensions: [".js", ".android.js", ".ios.js", ".jsx", ".ts", ".tsx"]
       }
     }
   }
