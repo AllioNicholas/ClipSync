@@ -1,11 +1,16 @@
 // @flow strict
 import React from 'react';
-import { Text, View } from 'react-native';
+import styled from 'styled-components/native';
+import Content from './components/Content';
+
+const StyledContainer = styled.View`
+  flex: 1;
+`;
 
 const App = () => (
-  <View>
-    <Text>Open up App.js to start working on your app!</Text>
-  </View>
+  <StyledContainer>
+    <Content />
+  </StyledContainer>
 );
 
 export default App;
