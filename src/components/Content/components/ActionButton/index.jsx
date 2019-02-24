@@ -1,13 +1,18 @@
 // @flow strict
 import * as React from 'react';
-import styled from 'styled-components';
-import { TouchableOpacity, Text } from 'react-native';
+import styled from 'styled-components/native';
 
-const StyledButtonView = styled(TouchableOpacity)`
-  flex: 1;
+const StyledTouchableView = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  height: 50;
+  width: 200;
+  margin: 10px;
+  border-radius: 5;
 `;
 
-const StyledText = styled(Text)`
+const StyledText = styled.Text`
   color: red;
 `;
 
@@ -17,9 +22,9 @@ type Props = {
 };
 
 const ActionButton = ({ title, onButtonPressed }: Props) => (
-  <StyledButtonView onPress={onButtonPressed}>
+  <StyledTouchableView onPress={onButtonPressed}>
     <StyledText>{title}</StyledText>
-  </StyledButtonView>
+  </StyledTouchableView>
 );
 
 export default ActionButton;
