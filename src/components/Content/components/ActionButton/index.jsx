@@ -5,9 +5,10 @@ import styled from 'styled-components/native';
 const StyledTouchableView = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
-  background-color: grey;
-  height: 50;
-  width: 200;
+  border-color: grey;
+  border-width: 5;
+  aspect-ratio: 1;
+  width: 40%;
   margin: 10px;
   border-radius: 5;
 `;
