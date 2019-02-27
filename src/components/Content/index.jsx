@@ -28,63 +28,21 @@ const StyledNegatives = styled.View`
   background-color: red;
 `;
 
-type Props = {};
-
-type State = {
-  events: string[],
-};
-
-class Content extends React.Component<Props, State> {
-  state = {
-    events: [],
-  };
-
-  handleActionButtonPressed = actionId => {
-    Alert.alert('Button pressed:', actionId);
-  };
-
-  render() {
-    return (
-      <StyledContainer>
-        <StyledPositives>
-          <ActionButton
-            title="Button 1"
-            onButtonPressed={() => this.handleActionButtonPressed('Button 1')}
-          />
-          <ActionButton
-            title="Button 1"
-            onButtonPressed={() => this.handleActionButtonPressed('Button 1')}
-          />
-          <ActionButton
-            title="Button 1"
-            onButtonPressed={() => this.handleActionButtonPressed('Button 1')}
-          />
-          <ActionButton
-            title="Button 1"
-            onButtonPressed={() => this.handleActionButtonPressed('Button 1')}
-          />
-        </StyledPositives>
-        <StyledNegatives>
-          <ActionButton
-            title="Button 2"
-            onButtonPressed={() => this.handleActionButtonPressed('Button 2')}
-          />
-          <ActionButton
-            title="Button 2"
-            onButtonPressed={() => this.handleActionButtonPressed('Button 2')}
-          />
-          <ActionButton
-            title="Button 2"
-            onButtonPressed={() => this.handleActionButtonPressed('Button 2')}
-          />
-          <ActionButton
-            title="Button 2"
-            onButtonPressed={() => this.handleActionButtonPressed('Button 2')}
-          />
-        </StyledNegatives>
-      </StyledContainer>
-    );
-  }
-}
+const Content = () => (
+  <StyledContainer>
+    <StyledPositives>
+      <ActionButton title="Button 1" />
+      <ActionButton title="Button 1" />
+      <ActionButton title="Button 1" />
+      <ActionButton title="Button 1" />
+    </StyledPositives>
+    <StyledNegatives>
+      <ActionButton title="Button 2" />
+      <ActionButton title="Button 2" />
+      <ActionButton title="Button 2" />
+      <ActionButton title="Button 2" />
+    </StyledNegatives>
+  </StyledContainer>
+);
 
 export default Content;
