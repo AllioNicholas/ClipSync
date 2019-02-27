@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from 'react';
 import styled from 'styled-components/native';
+import { trackEvent } from '../../../../services/events';
 
 const StyledTouchableView = styled.TouchableOpacity`
   justify-content: center;
@@ -18,11 +19,11 @@ const StyledText = styled.Text`
 
 type Props = {
   title: string,
-  onButtonPressed: () => Void,
+  actionId: string,
 };
 
-const ActionButton = ({ title, onButtonPressed }: Props) => (
-  <StyledTouchableView onPress={onButtonPressed}>
+const ActionButton = ({ title, actionId }: Props) => (
+  <StyledTouchableView onPress={() => trackEvent(actionId)}>
     <StyledText>{title}</StyledText>
   </StyledTouchableView>
 );
