@@ -7,14 +7,13 @@ const StyledTouchableView = styled.TouchableOpacity`
   align-items: center;
   border-color: grey;
   border-width: 5;
-  aspect-ratio: 1;
-  width: 40%;
-  margin: 10px;
+  aspect-ratio: 1.5;
+  width: 100%;
   border-radius: 5;
 `;
 
 const StyledText = styled.Text`
-  color: red;
+  color: blue;
 `;
 
 type Props = {
