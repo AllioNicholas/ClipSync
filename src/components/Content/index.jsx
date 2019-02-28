@@ -1,9 +1,10 @@
 // @flow strict
 import * as React from 'react';
-import { Button } from 'react-native';
+import { Button, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { POSITIVE_EVENTS, NEGATIVE_EVENTS, getLog, clearEvents } from '../../services/events';
 import ActionButton from './components/ActionButton';
+import * as TimeContext from '../../services/time/context';
 
 const StyledContainer = styled.View`
   flex: 1;
@@ -37,6 +38,13 @@ const StyledNegatives = styled.View`
 
 const Content = () => (
   <StyledContainer>
+    <TimeContext.Consumer>
+      {({ elapsedTime, toggleTimer, resetTimer }) => (
+        <TouchableOpacity onPress={() => toggleTimer()} onLongPress={() => resetTimer()}>
+          <Text>{elapsedTime}</Text>
+        </TouchableOpacity>
+      )}
+    </TimeContext.Consumer>
     <Button title="Print log" onPress={() => getLog().then(log => console.log(log))} />
     <Button title="Clear log" onPress={() => clearEvents()} />
     <StyledButtonContainer>
