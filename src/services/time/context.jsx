@@ -11,16 +11,14 @@ type State = {|
 
 type TimeContext = {|
   elapsetTime: number,
-  pauseTimer: () => void,
-  resumeTimer: () => void,
+  toggleTimer: () => void,
   resetTimer: () => void,
 |};
 
 const { Consumer, Provider } = React.createContext(
   ({
     elapsedTime: 0,
-    pauseTimer: () => {},
-    resumeTimer: () => {},
+    toggleTimer: () => {},
     resetTimer: () => {},
   }: TimeContext),
 );
@@ -34,19 +32,26 @@ class TimeProvider extends React.PureComponent<Props, State> {
     };
   }
 
-  componentDidMount = () => {
-    setTimeout(() => {
-      this.setState(state => ({
-        elapsedTime: state.elapsedTime + 1,
-      }));
-    }, 1000);
+  toggleTimer = () => {
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.interval = null;
+    } else {
+      this.interval = setInterval(() => {
+        this.setState(state => ({
+          elapsedTime: state.elapsedTime + 1,
+        }));
+      }, 1000);
+    }
   };
 
-  pauseTimer: () => {};
-
-  resumeTimer: () => {};
-
-  resetTimer: () => {};
+  resetTimer = () => {
+    clearInterval(this.interval);
+    this.interval = null;
+    this.setState({
+      elapsedTime: 0,
+    });
+  };
 
   render() {
     const { elapsedTime } = this.state;
@@ -56,8 +61,7 @@ class TimeProvider extends React.PureComponent<Props, State> {
       <Provider
         value={{
           elapsedTime,
-          pauseTimer: this.pauseTimer,
-          resumeTimer: this.resumeTimer,
+          toggleTimer: this.toggleTimer,
           resetTimer: this.resetTimer,
         }}
       >
