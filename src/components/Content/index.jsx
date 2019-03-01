@@ -37,7 +37,7 @@ const StyledPositives = styled.View`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: green;
+  background-color: #90EE90;
 `;
 
 const StyledNegatives = styled.View`
@@ -45,7 +45,7 @@ const StyledNegatives = styled.View`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: #F08080;
 `;
 
 const Content = () => (

@@ -7,15 +7,15 @@ import type { Event } from '../../../../services/events';
 const StyledTouchableView = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
-  border-color: grey;
-  border-width: 5;
+  border-color: #778899;
+  border-width: 3;
   aspect-ratio: 1.5;
   width: 100%;
-  border-radius: 5;
 `;
 
 const StyledText = styled.Text`
-  color: blue;
+  color: #000080;
+  font-weight: 900;
 `;
 
 type Props = {
