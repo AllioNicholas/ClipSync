@@ -49,31 +49,37 @@ const StyledNegatives = styled.View`
 `;
 
 const Content = () => (
-  <StyledContainer>
-    <Button title="Print log" onPress={() => getLog().then(log => console.log(log))} />
-    <Button title="Clear log" onPress={() => clearEvents()} />
-    <TimeContext.Consumer>
-      {({ elapsedTime, toggleTimer, resetTimer }) => (
+  <TimeContext.Consumer>
+    {({ elapsedTime, toggleTimer, resetTimer }) => (
+      <StyledContainer>
+        <Button title="Print log" onPress={() => getLog().then(log => console.log(log))} />
+        <Button title="Clear log" onPress={() => clearEvents()} />
         <StyledTimerContainer>
           <TouchableOpacity onPress={() => toggleTimer()} onLongPress={() => resetTimer()}>
             <StyledTimerText>{formatElapsedTime(elapsedTime)}</StyledTimerText>
           </TouchableOpacity>
         </StyledTimerContainer>
-      )}
-    </TimeContext.Consumer>
-    <StyledButtonContainer>
-      <StyledPositives>
-        {Object.keys(POSITIVE_EVENTS).map(eventName => (
-          <ActionButton key={eventName} buttonEvent={POSITIVE_EVENTS[eventName]} />
-        ))}
-      </StyledPositives>
-      <StyledNegatives>
-        {Object.keys(NEGATIVE_EVENTS).map(eventName => (
-          <ActionButton key={eventName} buttonEvent={NEGATIVE_EVENTS[eventName]} />
-        ))}
-      </StyledNegatives>
-    </StyledButtonContainer>
-  </StyledContainer>
+        <StyledButtonContainer>
+          <StyledPositives>
+            {Object.keys(POSITIVE_EVENTS).map(eventName => (
+              <ActionButton
+                key={eventName}
+                buttonEvent={{ ...POSITIVE_EVENTS[eventName], timestamp: elapsedTime }}
+              />
+            ))}
+          </StyledPositives>
+          <StyledNegatives>
+            {Object.keys(NEGATIVE_EVENTS).map(eventName => (
+              <ActionButton
+                key={eventName}
+                buttonEvent={{ ...NEGATIVE_EVENTS[eventName], timestamp: elapsedTime }}
+              />
+            ))}
+          </StyledNegatives>
+        </StyledButtonContainer>
+      </StyledContainer>
+    )}
+  </TimeContext.Consumer>
 );
 
 export default Content;
