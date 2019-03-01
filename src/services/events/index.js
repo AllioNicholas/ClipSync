@@ -49,7 +49,7 @@ export const trackEvent = (event: Event) => {
     if (events) {
       const existingEvent = events[event.timestamp];
       if (existingEvent) {
-        const eventsArray = [existingEvent, event.name];
+        const eventsArray = [event.name].concat(existingEvent);
         return AsyncStorage.mergeItem(
           EVENTS_STORAGE_KEY,
           JSON.stringify({
